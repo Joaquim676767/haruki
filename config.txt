@@ -1,0 +1,198 @@
+/////////////////////////////////////////////////////////
+// Config for the JMusicBot                            //
+/////////////////////////////////////////////////////////
+// Any line starting with // is ignored                //
+// You MUST set the token and owner                    //
+// All other items have defaults if you don't set them //
+// Open in Notepad++ for best results                  //
+/////////////////////////////////////////////////////////
+
+
+// This sets the token for the bot to log in with
+// This MUST be a bot token (user tokens will not work)
+// If you don't know how to get a bot token, please see the guide here:
+// https://github.com/jagrosh/MusicBot/wiki/Getting-a-Bot-Token
+
+token = NzMwOTIxODQ2NTkzMjkwMzUx.XweiBA.u0p42rxUb0JsejdzWqbFNypZkN8
+
+
+// This sets the owner of the bot
+// This needs to be the owner's ID (a 17-18 digit number)
+// https://github.com/jagrosh/MusicBot/wiki/Finding-Your-User-ID
+
+owner = 798598996452442152
+
+
+// This sets the prefix for the bot
+// The prefix is used to control the commands
+// If you use !!, the play command will be !!play
+// If you do not set this, the prefix will be a mention of the bot (@Botname play)
+
+prefix = "@mention"
+
+
+// If you set this, it modifies the default game of the bot
+// Set this to NONE to have no game
+// Set this to DEFAULT to use the default game
+// You can make the game "Playing X", "Listening to X", or "Watching X"
+// where X is the title. If you don't include an action, it will use the
+// default of "Playing"
+
+game = "DEFAULT"
+
+
+// If you set this, it will modify the default status of bot
+// Valid values: ONLINE IDLE DND INVISIBLE
+
+status = IDLE
+
+
+// Se você definir isso como verdadeiro, o bot irá listar o título da música que está tocando no seu
+// Status "Jogando". Observe que isso SÓ funcionará se o bot estiver tocando música em UMA guilda;
+// se o bot estiver jogando em várias guildas, isso não funcionará.
+
+songinstatus=true
+
+
+// If you set this, the bot will also use this prefix in addition to
+// the one provided above
+
+altprefix = "NONE"
+
+
+// If you set these, it will change the various emojis
+
+success = "🎶"
+warning = "💡"
+error = "🚫"
+loading = "⌚"
+searching = "🔎"
+
+
+// If you set this, you change the word used to view the help.
+// For example, if you set the prefix to !! and the help to cmds, you would type
+// !!cmds to see the help text
+
+help = help
+
+
+// Se você definir isso, o comando "nowplaying" mostrará miniaturas do youtube
+// Nota: Se você definir isso como verdadeiro, as caixas em exibição NÃO serão atualizadas
+// Isso ocorre porque a atualização das caixas faz com que a imagem seja recarregada
+// toda vez que ele é atualizado.
+
+npimages = false
+
+
+// Se você definir isso, o bot não deixará um canal de voz após terminar uma fila.
+// Lembre-se de que estar conectado a um canal de voz usa largura de banda adicional,
+// portanto, essa opção não é recomendada se a largura de banda for uma preocupação.
+
+stayinchannel = true
+
+
+// This sets the maximum amount of seconds any track loaded can be. If not set or set
+// to any number less than or equal to zero, there is no maximum time length. This time
+// restriction applies to songs loaded from any source.
+
+maxtime = 0
+
+
+// This sets the amount of seconds the bot will stay alone on a voice channel until it
+// automatically leaves the voice channel and clears the queue. If not set or set
+// to any number less than or equal to zero, the bot won't leave when alone.
+
+alonetimeuntilstop = 0
+
+
+// This sets an alternative folder to be used as the Playlists folder
+// This can be a relative or absolute path
+
+playlistsfolder = "Playlists"
+
+
+// Por padrão, o bot irá DM o proprietário se o bot estiver rodando e uma nova versão do bot
+// torna-se disponível. Defina como falso para desativar este recurso.
+
+updatealerts=true
+
+
+// Changing this changes the lyrics provider
+// Currently available providers: "A-Z Lyrics", "Genius", "MusicMatch", "LyricsFreak"
+// At the time of writing, I would recommend sticking with A-Z Lyrics or MusicMatch,
+// as Genius tends to have a lot of non-song results and you might get something 
+// completely unrelated to what you want.
+// If you are interested in contributing a provider, please see
+// https://github.com/jagrosh/JLyrics
+
+lyrics.default = "A-Z Lyrics"
+
+
+// These settings allow you to configure custom aliases for all commands.
+// Multiple aliases may be given, separated by commas.
+//
+// Example 1: Giving command "play" the alias "p":
+ play = [ p ]
+//
+// Example 2: Giving command "search" the aliases "yts" and "find":
+// search = [ yts, find ]
+
+aliases {
+  // General commands
+  settings = [ status ]
+
+  // Music commands
+  lyrics = []
+  nowplaying = [ np, current ]
+  play = []
+  playlists = [ pls ]
+  queue = [ list ]
+  remove = [ delete ]
+  scsearch = []
+  search = [ ytsearch ]
+  shuffle = []
+  skip = [ voteskip ]
+
+  // Admin commands
+  prefix = [ setprefix ]
+  setdj = []
+  settc = []
+  setvc = []
+
+  // DJ Commands
+  forceremove = [ forcedelete, modremove, moddelete, modelete ]
+  forceskip = [ modskip ]
+  movetrack = [ move ]
+  pause = []
+  playnext = []
+  repeat = []
+  skipto = [ jumpto ]
+  stop = []
+  volume = [ vol ]
+}
+
+
+// As transformações são usadas para modificar entradas específicas de reprodução e convertê-las em diferentes tipos de entradas
+// São bastante complicados de usar e têm casos de uso limitados, mas em teoria permitem
+// listas de permissões ou listas negras, carregamento indireto de algumas fontes e personalização de como as coisas estão
+// Requeridos.
+//
+// Eles NÃO são fáceis de configurar, então se quiser usá-los, você precisará examinar o código
+// para saber como eles funcionam e quais campos são necessários. Além disso, é possível que esse recurso seja totalmente
+// removido no futuro se eu encontrar uma maneira melhor de fazer isso.
+
+transforms = {}
+
+
+// Se você definir isso como verdadeiro, ele habilitará o comando eval para o proprietário do bot. Este comando
+// permite que o proprietário do bot execute código arbitrário da conta do bot.
+//
+// AVISO:
+// Este comando pode ser extremamente perigoso. Se você não sabe o que está fazendo, você poderia
+// causar problemas terríveis em seu servidor Discord ou em qualquer computador que este bot esteja executando
+// sobre. Nunca execute este comando, a menos que você tenha certeza do que está executando.
+//
+// NÃO ATIVE SE VOCÊ NÃO SABE O QUE ISSO FAZ OU COMO USÁ-LO
+// SE ALGUEM PEDIR PARA HABILITAR ISSO, HÁ UMA CHANCE 11/10 DE QUE ESTÃO TENTANDO ENGANAR VOCÊ
+
+eval=false
